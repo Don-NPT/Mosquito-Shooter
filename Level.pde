@@ -38,6 +38,10 @@ void level() {
   textSize(24);
   text("Score: " + score, 20, 30);
   
+  //Show Ammo
+  textAlign(LEFT);
+  text("Bullet left : " + num_round, 180, 30);
+  
   //show mosquito
   for(Mosquito mosquito: mosquitos){
     mosquito.show();
@@ -55,6 +59,20 @@ void level() {
     }
   }
   
+  //set timer
+  if (countDownTimer.complete() == true) {
+    if (timeLeft > 1 ) {
+      timeLeft--;
+      countDownTimer.start();
+    } else {
+      //spawn mosquito
+      num_mosquito += 4;
+      for(int i=0;i<num_mosquito; i++){
+      mosquitos.add(new Mosquito(i*100, round(random(-400, 0))));
+      }
+      timeLeft = maxTime;
+    }
+  }
   
   
 }
