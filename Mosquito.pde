@@ -14,6 +14,8 @@ public class Mosquito {
     y += 1;
   }
   
+  
+  
   //void destroy() {
   //  for (int i = 0; i < level.enemies.size(); i++) {
   //    if (level.enemies.get(i) == this)

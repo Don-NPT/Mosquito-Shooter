@@ -1,4 +1,4 @@
-class Button {
+public class Button {
   float x, y;
   int w, h;
   String text;

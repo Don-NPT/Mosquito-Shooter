@@ -1,6 +1,7 @@
 String screen;
 PImage title_bg;
 ArrayList<Mosquito> mosquitos;
+ArrayList<Bullet> bullets;
 int num_mosquito;
 
 void setup() {
@@ -17,6 +18,9 @@ void setup() {
     mosquitos.add(new Mosquito(i*100, round(random(-400, 0))));
   }
  
+ //setup bullets
+ bullets = new ArrayList<Bullet>();
+ 
 }
 
 void draw() {
@@ -31,3 +35,22 @@ void draw() {
     break;
   }
 }
+
+void mouseClicked() {
+  switch(screen) {
+  case "menu":
+    if(btn_play.mouseInside){
+      screen = "level1";
+    } 
+    break;
+  case "level1":
+    bullets.add(new Bullet(x1, y1));
+    break;
+  }
+   
+}
+
+//void mouseClicked() {
+//  bullets = new ArrayList<Bullet>();
+//  bullets.add(new Bullet(x1, y1));
+//}

@@ -21,10 +21,3 @@ void menu() {
   btn_play.show();
   
 }
-
-void mouseClicked() {
-  if(btn_play.mouseInside){
-    screen = "level1";
-  }  
-  
-}

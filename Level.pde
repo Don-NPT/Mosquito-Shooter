@@ -2,7 +2,8 @@
 int playerX = 384; 
 int playerY = 477;
 
-//boolean spawnMosquito;
+float x1;
+float y1;
 
 void level() {
   background(230,230,255);
@@ -20,21 +21,31 @@ void level() {
   
   //aim line
   float angle = atan2(mouseY - playerY, mouseX - playerX);
-  float x1 = playerX + 10000 * cos(angle);
-  float y1 = playerX + 10000 * sin(angle);
+  x1 = playerX + 800 * cos(angle);
+  y1 = playerX + 600 * sin(angle);
   stroke(255, 0, 0, 100);
   strokeWeight(3);
   line(playerX, playerY, x1, y1);
-  
+
   //draw gun (player)
   rectMode(CENTER);
   fill(0);
   noStroke();
   ellipse(playerX, playerY, 20, 20);
   
+  //show mosquito
   for(Mosquito mosquito: mosquitos){
     mosquito.show();
     mosquito.fly();
   }
+  
+  //show bullet
+  for(Bullet bullet: bullets){
+    bullet.show();
+    bullet.fire();
+  }
+  
+  //check bullet collision
+  
   
 }
