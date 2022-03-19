@@ -1,9 +1,11 @@
 String screen;
+PImage title_bg;
 
 void setup() {
   frameRate(60);
   size(768,512);
   
+  title_bg = loadImage("images/title_bg.jpg");
   screen = "menu";
 }
 

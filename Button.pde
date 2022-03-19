@@ -43,7 +43,7 @@ class Button {
     } else {
       rectMode(CENTER);
       noStroke();
-      fill(175);
+      fill(255);
       rect(x, y, w, h);
       
       fill(0);
