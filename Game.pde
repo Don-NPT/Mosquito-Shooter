@@ -4,6 +4,12 @@ ArrayList<Mosquito> mosquitos;
 ArrayList<Bullet> bullets;
 int num_mosquito;
 int score;
+Timer countDownTimer;
+int timeLeft;
+int maxTime;
+Timer timer;
+int max_round = 15;
+int num_round = max_round;
 
 void setup() {
   frameRate(60);
@@ -25,6 +31,10 @@ void setup() {
  //set initial score
  score = 0;
  
+  //set timer
+  countDownTimer = new Timer(1000);
+  maxTime = 5;
+  timeLeft = maxTime;
 }
 
 void draw() {
@@ -49,6 +59,7 @@ void mouseClicked() {
     break;
   case "level1":
     bullets.add(new Bullet(x1, y1));
+    num_round--;
     break;
   }
    
