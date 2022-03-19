@@ -17,6 +17,7 @@ public class Bullet {
   void fire() {
     float speed = 2;    
     PVector dir = new PVector(targetX - x, targetY - y);
+    if(num_round > 0){
       if (dir.mag() > 0) {
         dir.normalize();
         dir.mult(min(speed, dir.mag()));
@@ -24,6 +25,10 @@ public class Bullet {
         x += dir.x * 10;
         y += dir.y * 10;
     }
+  }else{
+    delay(1500);
+    num_round = max_round;
+  }
   }
   
   boolean checkCollision() {
