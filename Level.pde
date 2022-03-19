@@ -2,11 +2,13 @@
 int playerX = 384; 
 int playerY = 477;
 
+//boolean spawnMosquito;
+
 void level() {
   background(230,230,255);
   
   textAlign(CENTER);
-  fill(0, 100);
+  fill(0, 10);
   textSize(60);
   text("This is level 1" ,width/2, height/2);
   
@@ -29,5 +31,10 @@ void level() {
   fill(0);
   noStroke();
   ellipse(playerX, playerY, 20, 20);
+  
+  for(Mosquito mosquito: mosquitos){
+    mosquito.show();
+    mosquito.fly();
+  }
   
 }

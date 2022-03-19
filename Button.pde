@@ -24,7 +24,7 @@ class Button {
     //buttonPressedImg.resize(wScale, hScale);
   }
   
-  void draws(){
+  void show(){
     if (mouseX >= x-w/2 && mouseX <= x+w/2 && mouseY >= y-h/2 && mouseY <= y+h/2) 
       mouseInside = true;
     else
