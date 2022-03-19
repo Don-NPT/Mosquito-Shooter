@@ -24,7 +24,24 @@ public class Bullet {
         x += dir.x * 10;
         y += dir.y * 10;
     }
-    
+  }
+  
+  boolean checkCollision() {
+    for(Mosquito mosquito: mosquitos){
+      if(x >= mosquito.x-10 && x <= mosquito.x+10 && y >= mosquito.y-10 && y <= mosquito.y+10) {
+        mosquito.destroy();
+        score += 10;
+        return true;
+      }
+    }
+    return false;
+  }
+  
+  void destroy() {
+    for (int i = 0; i < bullets.size(); i++) {
+      if (bullets.get(i) == this)
+        bullets.get(i).y = -10;
+    }
   }
   
 }

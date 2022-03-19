@@ -3,6 +3,7 @@ PImage title_bg;
 ArrayList<Mosquito> mosquitos;
 ArrayList<Bullet> bullets;
 int num_mosquito;
+int score;
 
 void setup() {
   frameRate(60);
@@ -20,6 +21,9 @@ void setup() {
  
  //setup bullets
  bullets = new ArrayList<Bullet>();
+ 
+ //set initial score
+ score = 0;
  
 }
 

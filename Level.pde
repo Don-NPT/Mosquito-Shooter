@@ -33,6 +33,11 @@ void level() {
   noStroke();
   ellipse(playerX, playerY, 20, 20);
   
+  //show score
+  textAlign(LEFT);
+  textSize(24);
+  text("Score: " + score, 20, 30);
+  
   //show mosquito
   for(Mosquito mosquito: mosquitos){
     mosquito.show();
@@ -43,9 +48,13 @@ void level() {
   for(Bullet bullet: bullets){
     bullet.show();
     bullet.fire();
+    
+    //check bullet collision
+    if(bullet.checkCollision()){
+      bullet.destroy();
+    }
   }
   
-  //check bullet collision
   
   
 }

@@ -14,13 +14,11 @@ public class Mosquito {
     y += 1;
   }
   
-  
-  
-  //void destroy() {
-  //  for (int i = 0; i < level.enemies.size(); i++) {
-  //    if (level.enemies.get(i) == this)
-  //      level.enemies.remove(i);
-  //  }
-  //}
+  void destroy() {
+    for (int i = 0; i < mosquitos.size(); i++) {
+      if (mosquitos.get(i) == this)
+        mosquitos.get(i).y = 1000;
+    }
+  }
   
 }
