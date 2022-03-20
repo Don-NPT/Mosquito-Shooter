@@ -1,13 +1,15 @@
 public class Mosquito {
   float x, y;
-  
+  PImage mosquitoImg;
   Mosquito(float posX, float posY) {
     x = posX;
     y = posY;
+    mosquitoImg = loadImage("images/mosquito.png"); 
   }
   
   void show() {
-    ellipse(x, y, 20, 20);
+    image(mosquitoImg,x,y);
+    //ellipse(x, y, 20, 20);
   }
   
   void fly() {

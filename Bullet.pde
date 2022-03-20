@@ -2,7 +2,6 @@ public class Bullet {
   
   float x, y;
   float targetX, targetY;
-  
   Bullet(float targetX_, float targetY_) {
     x = playerX;
     y = playerY;
@@ -45,7 +44,7 @@ public class Bullet {
   void destroy() {
     for (int i = 0; i < bullets.size(); i++) {
       if (bullets.get(i) == this)
-        bullets.get(i).y = -10;
+        bullets.get(i).y = -100;
     }
   }
   
