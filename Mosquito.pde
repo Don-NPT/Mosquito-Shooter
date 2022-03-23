@@ -14,6 +14,10 @@ public class Mosquito {
   
   void fly() {
     y += 1;
+    //Check mosquito touch the wall
+    if(y == height-35){
+     end();
+    }
   }
   
   void destroy() {
