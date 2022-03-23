@@ -58,9 +58,12 @@ void mouseClicked() {
     } 
     break;
   case "level1":
+  //check aim in 180 degree
+  if(y1 <= playerY){
     bullets.add(new Bullet(x1, y1));
     num_round--;
     break;
+  }
   }
    
 }
