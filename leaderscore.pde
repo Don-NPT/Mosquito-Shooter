@@ -7,6 +7,7 @@ String namescore;
 PrintWriter output;
 int count=0;
 int temp = 0;
+boolean writeFile = false;
 
 void leaderscore() {
   size(768,512);
@@ -14,19 +15,22 @@ void leaderscore() {
   //background(title_bg);
   
   //while lopp for read txt and save txt
-
-  String namescore = " Dragon"+score;
-  String[] lines = loadStrings("score.txt");
-  String entireplay = join(lines, ' ');
-  entireplay = entireplay+namescore;
-  word = split(entireplay, ' ');
-  count++;
-  print(count+" ");
+  if(writeFile == true){
+    String namescore = " Dragon"+score;
+    String[] lines = loadStrings("score.txt");
+    String entireplay = join(lines, ' ');
+    entireplay = entireplay+namescore;
+    word = split(entireplay, ' ');
+    count++;
+    print(count+" ");
+    
+    saveStrings("score.txt",word);
+    writeFile = false;
+  }
   drawe();
-  saveStrings("score.txt",word);
 
 
-  temp = 1;
+  //temp = 1;
 }
 
 

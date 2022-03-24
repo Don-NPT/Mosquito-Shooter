@@ -6,7 +6,7 @@ float x1;
 float y1;
 
 void level() {
-  background(230,230,255);
+  background(sky);
   
   textAlign(CENTER);
   fill(0, 10);
@@ -20,18 +20,21 @@ void level() {
   rect(width/2, height-35, width, 70);
   
   //aim line
+  //noCursor();
   float angle = atan2(mouseY - playerY, mouseX - playerX);
   x1 = playerX + 800 * cos(angle);
   y1 = playerX + 600 * sin(angle);
   stroke(255, 0, 0, 100);
   strokeWeight(3);
   line(playerX, playerY, x1, y1);
+ 
 
   //draw gun (player)
   rectMode(CENTER);
   fill(0);
   noStroke();
   ellipse(playerX, playerY, 20, 20);
+  
   
   //show score
   textAlign(LEFT);
@@ -59,21 +62,16 @@ void level() {
     }
   }
   
-  //set timer
-  if (countDownTimer.complete() == true) {
-    if (timeLeft > 1 ) {
-      timeLeft--;
-      countDownTimer.start();
-    } else {
-      //spawn mosquito
-      num_mosquito += 4;
-      for(int i=0;i<num_mosquito; i++){
-      mosquitos.add(new Mosquito(i*100, round(random(-400, 0))));
-      }
-      timeLeft = maxTime;
-    }
+  //spawn mosquitos
+  if(mosquitos.size() <= max_mosquito){
+    mosquitos.add(new Mosquito(round(random(20, 748)), round(random(-700, 0)), random(0.5, 0), mosquito_animation));
   }
   
+  //show bombs
+  for(Bomb bomb: bombs){
+    bomb.show();
+    if(bomb.index < 20) bomb.animate();
+  }
   
 }
 

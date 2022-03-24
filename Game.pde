@@ -1,8 +1,11 @@
 String screen;
 PImage title_bg;
+PImage sky;
 ArrayList<Mosquito> mosquitos;
+ArrayList<Bomb> bombs;
 ArrayList<Bullet> bullets;
 int num_mosquito;
+int max_mosquito = 30;
 int score;
 Timer countDownTimer;
 int timeLeft;
@@ -18,7 +21,43 @@ void setup() {
   title_bg = loadImage("images/title_bg.jpg");
   screen = "menu";
   
-  reset();
+  sky = loadImage("images/sky.jpg");
+  
+  //get animation from mosquito spreadsheet
+  mosquito_animation = new ArrayList<PImage>();
+  mosquito_spritedata = loadJSONObject("images/mosquito.json");
+  mosquito_spritesheet = loadImage("images/mosquito2.png");
+  JSONArray sheep_frames = mosquito_spritedata.getJSONArray("frames");
+  for (int i = 0; i < sheep_frames.size(); i++) {
+    JSONObject mosquito_frame = sheep_frames.getJSONObject(i);
+    JSONObject pos = mosquito_frame.getJSONObject("position");
+    int x = pos.getInt("x");
+    int y = pos.getInt("y");
+    int w = pos.getInt("w");
+    int h = pos.getInt("h");
+    PImage mosquito_img = mosquito_spritesheet.get(x, y, w, h);
+    mosquito_animation.add(mosquito_img);
+  }
+  
+  //get animation from bomb spreadsheet
+  bomb_animation = new ArrayList<PImage>();
+  bomb_spritedata = loadJSONObject("images/bomb.json");
+  bomb_spritesheet = loadImage("images/bomb.png");
+  JSONArray bomb_frames = bomb_spritedata.getJSONArray("frames");
+  for (int i = 0; i < bomb_frames.size(); i++) {
+    JSONObject bomb_frame = bomb_frames.getJSONObject(i);
+    JSONObject pos = bomb_frame.getJSONObject("position");
+    int x = pos.getInt("x");
+    int y = pos.getInt("y");
+    int w = pos.getInt("w");
+    int h = pos.getInt("h");
+    PImage bomb_img = bomb_spritesheet.get(x, y, w, h);
+    bomb_animation.add(bomb_img);
+  }
+  mosquitos = new ArrayList<Mosquito>();
+  bombs = new ArrayList<Bomb>();
+  bullets = new ArrayList<Bullet>();
+  //reset();
 }
 
 void draw() {
@@ -39,7 +78,7 @@ void draw() {
   }
 }
 
-void mouseClicked() {
+void mousePressed() {
   switch(screen) {
   case "menu":
     if(btn_play.mouseInside){
@@ -47,12 +86,12 @@ void mouseClicked() {
     } 
     break;
   case "level1":
-  //check aim in 180 degree
-  if(y1 <= playerY){
-    bullets.add(new Bullet(x1, y1));
-    num_round--;
-    break;
-  }
+    //check aim in 180 degree
+    if(y1 <= playerY){
+      bullets.add(new Bullet(x1, y1));
+      num_round--;
+      break;
+    }
   }
    
 }
@@ -64,7 +103,7 @@ void reset(){
   num_mosquito = 8;
   mosquitos = new ArrayList<Mosquito>();
   for(int i=0;i<num_mosquito; i++){
-    mosquitos.add(new Mosquito(i*100, round(random(-400, 0))));
+    mosquitos.add(new Mosquito(i*100, round(random(-400, 0)), 1, mosquito_animation));
   }
  
  //setup bullets

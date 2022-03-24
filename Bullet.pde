@@ -10,7 +10,7 @@ public class Bullet {
   }
   
   void show() {
-    ellipse(x, y, 5, 5);
+    ellipse(x, y, 7, 7);
   }
   
   void fire() {
@@ -21,8 +21,8 @@ public class Bullet {
         dir.normalize();
         dir.mult(min(speed, dir.mag()));
         
-        x += dir.x * 10;
-        y += dir.y * 10;
+        x += dir.x * 12;
+        y += dir.y * 12;
     }
   }else{
     delay(1500);
@@ -32,7 +32,8 @@ public class Bullet {
   
   boolean checkCollision() {
     for(Mosquito mosquito: mosquitos){
-      if(x >= mosquito.x-10 && x <= mosquito.x+10 && y >= mosquito.y-10 && y <= mosquito.y+10) {
+      if(x >= mosquito.x-25 && x <= mosquito.x+25 && y >= mosquito.y-25 && y <= mosquito.y+25) {
+        bombs.add(new Bomb(mosquito.x, mosquito.y, bomb_animation));
         mosquito.destroy();
         score += 10;
         return true;
