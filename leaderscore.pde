@@ -8,6 +8,9 @@ String namescore;
 PrintWriter output;
 int count=0;
 int temp = 0;
+ArrayList<TEXTBOX> textboxes = new ArrayList<TEXTBOX>();
+boolean send = false;
+String msg = "";
 
 void leaderscore() {
   size(768,512);
@@ -16,7 +19,7 @@ void leaderscore() {
   
   //while lopp for read txt and save txt
   while(temp == 0){
-  String namescore = "Dragon"+score+" ";
+  namescore = textboxes.get(0).Text+score+" ";
   String[] lines = loadStrings("score.txt");
   String entireplay = join(lines, ' ');
   entireplay = entireplay+namescore;
@@ -27,7 +30,8 @@ void leaderscore() {
   saveStrings("score.txt",save);
   break;
 }
-  drawe();
+  
+  drawleaderscore();
   temp = 1;
 }
 
@@ -51,4 +55,36 @@ boolean checkfile(){
    return false;
    }
   
+}
+
+//layout input name
+void InitLayout() {
+   TEXTBOX receiver = new TEXTBOX();
+   receiver.W = 300;
+   receiver.H = 35;
+   receiver.X = (width - receiver.W) / 2;
+   receiver.Y = 50;
+   textboxes.add(receiver);
+}
+
+void drawTEXTBOX() {
+   
+   for (TEXTBOX t : textboxes) {
+      t.DRAW();
+   }
+   
+   if (send) {
+      text(msg, (width - textWidth(msg)) / 2-200, 260);
+   }
+}
+
+
+
+void keyPressed() {
+   for (TEXTBOX t : textboxes) {
+      if (t.KEYPRESSED(key, keyCode)) {
+         send = true;
+         msg = "Message is: " + textboxes.get(0).Text;
+      }
+   }
 }
