@@ -18,23 +18,7 @@ void setup() {
   title_bg = loadImage("images/title_bg.jpg");
   screen = "menu";
   
-  //spawn mosquito
-  num_mosquito = 8;
-  mosquitos = new ArrayList<Mosquito>();
-  for(int i=0;i<num_mosquito; i++){
-    mosquitos.add(new Mosquito(i*100, round(random(-400, 0))));
-  }
- 
- //setup bullets
- bullets = new ArrayList<Bullet>();
- 
- //set initial score
- score = 0;
- 
-  //set timer
-  countDownTimer = new Timer(1000);
-  maxTime = 5;
-  timeLeft = maxTime;
+  reset();
 }
 
 void draw() {
@@ -42,10 +26,15 @@ void draw() {
   
   switch(screen) {
   case "menu":
+  //set initial score
+    score = 0;
     menu();
     break;
   case "level1":
     level();
+    break;
+  case "end":
+    leaderscore();
     break;
   }
 }
@@ -66,6 +55,27 @@ void mouseClicked() {
   }
   }
    
+}
+
+void reset(){
+  //set loop save score
+  temp = 0;
+  //spawn mosquito
+  num_mosquito = 8;
+  mosquitos = new ArrayList<Mosquito>();
+  for(int i=0;i<num_mosquito; i++){
+    mosquitos.add(new Mosquito(i*100, round(random(-400, 0))));
+  }
+ 
+ //setup bullets
+ num_round = max_round;
+ bullets = new ArrayList<Bullet>();
+ 
+  //set timer
+  countDownTimer = new Timer(1000);
+  maxTime = 5;
+  timeLeft = maxTime;
+
 }
 
 //void mouseClicked() {
