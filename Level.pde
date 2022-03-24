@@ -76,8 +76,11 @@ void level() {
   
   
 }
+
 //end screen
 void end(){
-   screen = "menu";
+   reset();
+   screen = "end";
    draw();
  }
+ 
