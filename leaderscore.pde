@@ -1,6 +1,7 @@
 BufferedReader reader;
 String line;
 String[] word;
+String[] save;
 int index = 0;
 String input;
 String namescore;
@@ -14,18 +15,19 @@ void leaderscore() {
   //background(title_bg);
   
   //while lopp for read txt and save txt
-
-  String namescore = " Dragon"+score;
+  while(temp == 0){
+  String namescore = "Dragon"+score+" ";
   String[] lines = loadStrings("score.txt");
   String entireplay = join(lines, ' ');
   entireplay = entireplay+namescore;
   word = split(entireplay, ' ');
+  save = split(entireplay, '@');
   count++;
-  print(count+" ");
+  print(count+"leaderscore ");
+  saveStrings("score.txt",save);
+  break;
+}
   drawe();
-  saveStrings("score.txt",word);
-
-
   temp = 1;
 }
 
