@@ -42,6 +42,11 @@ void draw() {
 void mouseClicked() {
   switch(screen) {
   case "menu":
+  //click in textbox
+  for (TEXTBOX t : textboxes) {
+      t.PRESSED(mouseX, mouseY);
+   }
+   
     if(btn_play.mouseInside){
       screen = "level1";
     } 
