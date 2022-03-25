@@ -20,20 +20,32 @@ void leaderscore() {
   background(230,230,255);
   //background(title_bg);
   
-  //while lopp for read txt and save txt
-
+  
+  fill(0);
+  rect(width/2, height/2, 500, 500);
+  
+  textSize(32);
+  //show your score
+  fill(255);
+  text("Your name: " + textboxes.get(0).Text + "    Kill Count: "+ score , width/2, 70);
+  
+  //show record
+  fill(200);
+  text("Kill Record" , width/2, 140);
+  
+  //while lopp for read txt and save txt 
   while(temp == 0){
-  namescore = textboxes.get(0).Text+score+" ";
-  String[] lines = loadStrings("score.txt");
-  String entireplay = join(lines, ' ');
-  entireplay = entireplay+namescore;
-  word = split(entireplay, ' ');
-  save = split(entireplay, '@');
-  count++;
-  print(count+"leaderscore ");
-  saveStrings("score.txt",save);
-  break;
-}
+    namescore = "Name: "+textboxes.get(0).Text+"    KillCount: "+score+"&";
+    String[] lines = loadStrings("score.txt");
+    String entireplay = join(lines, ' ');
+    entireplay = entireplay+namescore;
+    word = split(entireplay, '&');
+    save = split(entireplay, '@');
+    count++;
+    print(count+"leaderscore ");
+    saveStrings("score.txt",save);
+    break;
+  }
   
   drawleaderscore();
   temp = 1;
@@ -42,12 +54,12 @@ void leaderscore() {
 
 
 void drawleaderscore(){
- fill(255);
- textSize(32);
+ fill(200);
+ textSize(24);
  textAlign(CENTER);
  textLeading(40);
  for(int i=0; i< word.length; i++){
-   text(word[i],width/2,height/2+(i*60)-200);
+   text(word[i],width/2,200+(i*60));
  
  }
 }

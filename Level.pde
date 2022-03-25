@@ -9,6 +9,7 @@ float y1;
 void level() {
   background(sky);
   
+  //enemy = 0, end game
   if(mosquitos.size() == 0){
     end();
   }
@@ -29,26 +30,16 @@ void level() {
   float angle = atan2(mouseY - playerY, mouseX - playerX);
   x1 = playerX + 800 * cos(angle);
   y1 = playerX + 600 * sin(angle);
-  stroke(255, 0, 0, 100);
+  if(reload) stroke(255, 0, 0, 20);
+  else stroke(255, 0, 0, 100);
   strokeWeight(3);
   line(playerX, playerY, x1, y1);
- 
 
   //draw gun (player)
   rectMode(CENTER);
   fill(0);
   noStroke();
   ellipse(playerX, playerY, 20, 20);
-  
-  
-  //show score
-  textAlign(LEFT);
-  textSize(24);
-  text("Score: " + score, 20, 30);
-  
-  //Show Ammo
-  textAlign(LEFT);
-  text("Bullet left : " + num_round, 180, 30);
   
   //show mosquito
   for(int i=0; i< mosquitos.size(); i++){
@@ -71,16 +62,18 @@ void level() {
       bullets.get(i).destroy();
     }
     
-    
-    
   }
   
+  //check reload
   if(num_round <= 0){
     bullet_timer--;
     reload = true;
   }
+  
+  //set reload timer
   if(bullet_timer <= 0){
-    bullet_timer= 100;
+    bullet_timer= 70;
+    num_round = 15;
     reload = false;
   }
   
@@ -91,9 +84,17 @@ void level() {
     else bombs.get(i).destroy();
   }
   
-  //show mosquito number
+  //show score
+  textAlign(LEFT);
+  textSize(24);
+  text("Score: " + score, 20, 30);
+  
+  //Show Ammo
+  textAlign(LEFT);
+  text("Bullet left : " + num_round, 180, 30);
+  
+  //show mosquitos number
   text("Mosquito remaining: "+mosquitos.size(), width-250, 30);
-  text(bullet_timer, width-100, 60);
   
 }
 

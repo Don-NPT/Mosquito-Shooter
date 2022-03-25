@@ -3,7 +3,7 @@ PImage title_bg;
 PImage sky;
 
 int num_mosquito;
-int max_mosquito = 30;
+int max_mosquito = 15;
 int score;
 Timer countDownTimer;
 int timeLeft;
@@ -123,7 +123,7 @@ void reset(){
   }
  
  //setup bullets
- num_round = max_round;
+ num_round = 15;
  bullets = new ArrayList<Bullet>();
  
   //set timer

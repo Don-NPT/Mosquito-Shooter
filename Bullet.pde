@@ -1,5 +1,5 @@
 ArrayList<Bullet> bullets;
-int bullet_timer = 100;
+int bullet_timer = 70;
 boolean reload = false;
 int num_round = 15;
 
@@ -22,12 +22,12 @@ public class Bullet {
     float speed = 2;    
     PVector dir = new PVector(targetX - x, targetY - y);
 
-      if (dir.mag() > 0) {
-        dir.normalize();
-        dir.mult(min(speed, dir.mag()));
-        
-        x += dir.x * 12;
-        y += dir.y * 12;
+    if (dir.mag() > 0) {
+      dir.normalize();
+      dir.mult(min(speed, dir.mag()));
+      
+      x += dir.x * 12;
+      y += dir.y * 12;
     }
 
   }
@@ -37,7 +37,7 @@ public class Bullet {
       if(x >= mosquito.x-25 && x <= mosquito.x+25 && y >= mosquito.y-25 && y <= mosquito.y+25) {
         bombs.add(new Bomb(mosquito.x, mosquito.y, bomb_animation));
         mosquito.destroy();
-        score += 10;
+        score ++;
         return true;
       }
     }
