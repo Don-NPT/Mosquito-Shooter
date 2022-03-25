@@ -28,7 +28,7 @@ public class Mosquito {
   void fly() {
     //animate
     //if(index > 1) index = 0;
-    index += speed/5;
+    index += speed/4;
     
      //Check mosquito touch the wall
     if(y == height-35){

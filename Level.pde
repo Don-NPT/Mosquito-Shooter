@@ -64,7 +64,7 @@ void level() {
   
   //spawn mosquitos
   if(mosquitos.size() <= max_mosquito){
-    mosquitos.add(new Mosquito(round(random(20, 748)), round(random(-700, 0)), random(0.5, 0), mosquito_animation));
+    mosquitos.add(new Mosquito(round(random(20, 748)), round(random(-400, 0)), random(0.5, 1), mosquito_animation));
   }
   
   //show bombs
