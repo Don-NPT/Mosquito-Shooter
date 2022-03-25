@@ -10,7 +10,6 @@ void level() {
   background(sky);
   
   if(mosquitos.size() == 0){
-    writeFile = true;
     end();
   }
   

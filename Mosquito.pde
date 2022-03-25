@@ -33,7 +33,6 @@ public class Mosquito {
     
      //Check mosquito touch the wall
     if(y >= height-35){
-     writeFile = true;
      end();
     }else if(screen == "level1"){
       y+=speed;
