@@ -1,4 +1,7 @@
 ArrayList<Bullet> bullets;
+int bullet_timer = 100;
+boolean reload = false;
+int num_round = 15;
 
 public class Bullet {
   
@@ -18,7 +21,7 @@ public class Bullet {
   void fire() {
     float speed = 2;    
     PVector dir = new PVector(targetX - x, targetY - y);
-    if(num_round > 0){
+
       if (dir.mag() > 0) {
         dir.normalize();
         dir.mult(min(speed, dir.mag()));
@@ -26,10 +29,7 @@ public class Bullet {
         x += dir.x * 12;
         y += dir.y * 12;
     }
-  }else{
-    delay(1500);
-    num_round = max_round;
-  }
+
   }
   
   boolean checkCollision() {
@@ -44,6 +44,8 @@ public class Bullet {
     return false;
   }
   
+
+  
   void destroy() {
     for (int i = 0; i < bullets.size(); i++) {
       if (bullets.get(i) == this)
@@ -53,3 +55,13 @@ public class Bullet {
   }
   
 }
+
+//boolean checkReload() {
+
+//  if(bullet_timer <= 0){
+//    num_round = max_round;
+//    bullet_timer = 500;
+//    return true;
+//  }
+//  return false;
+//}

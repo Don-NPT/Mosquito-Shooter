@@ -9,8 +9,7 @@ Timer countDownTimer;
 int timeLeft;
 int maxTime;
 Timer timer;
-int max_round = 15;
-int num_round = max_round;
+
 
 boolean spawn;
 
@@ -88,23 +87,27 @@ void draw() {
 
 void mousePressed() {
   switch(screen) {
-  case "menu":
-  //click in textbox
-  for (TEXTBOX t : textboxes) {
-      t.PRESSED(mouseX, mouseY);
-   }
-   
-    if(btn_play.mouseInside){
-      screen = "level1";
-    } 
-    break;
-  case "level1":
-    //check aim in 180 degree
-    if(y1 <= playerY){
-      bullets.add(new Bullet(x1, y1));
-      num_round--;
+    case "menu":
+    //click in textbox
+    for (TEXTBOX t : textboxes) {
+        t.PRESSED(mouseX, mouseY);
+     }
+     
+      if(btn_play.mouseInside){
+        screen = "level1";
+      } 
       break;
-    }
+    case "level1":
+      //check aim in 180 degree
+      if(reload == false){
+        if(y1 <= playerY){
+          bullets.add(new Bullet(x1, y1));
+          num_round--;
+          break;
+        }
+      }else{
+          break;
+      }
   }
    
 }

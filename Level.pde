@@ -71,8 +71,18 @@ void level() {
       bullets.get(i).destroy();
     }
     
+    
+    
   }
-
+  
+  if(num_round <= 0){
+    bullet_timer--;
+    reload = true;
+  }
+  if(bullet_timer <= 0){
+    bullet_timer= 100;
+    reload = false;
+  }
   
   //show bombs
   for(int i=0; i< bombs.size(); i++){
@@ -82,7 +92,8 @@ void level() {
   }
   
   //show mosquito number
-  text(mosquitos.size(), width-100, 50);
+  text("Mosquito remaining: "+mosquitos.size(), width-250, 30);
+  text(bullet_timer, width-100, 60);
   
 }
 
