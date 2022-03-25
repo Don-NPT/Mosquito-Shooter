@@ -1,6 +1,7 @@
 JSONObject mosquito_spritedata;
 PImage mosquito_spritesheet;
 ArrayList<PImage> mosquito_animation;
+ArrayList<Mosquito> mosquitos;
 
 public class Mosquito {
   float x, y, speed;
@@ -31,7 +32,7 @@ public class Mosquito {
     index += speed/4;
     
      //Check mosquito touch the wall
-    if(y == height-35){
+    if(y >= height-35){
      writeFile = true;
      end();
     }else if(screen == "level1"){
@@ -42,7 +43,8 @@ public class Mosquito {
   void destroy() {
     for (int i = 0; i < mosquitos.size(); i++) {
       if (mosquitos.get(i) == this)
-        mosquitos.get(i).y = 1000;
+        //mosquitos.get(i).y = 1000;
+        mosquitos.remove(i);
     }
   }
   

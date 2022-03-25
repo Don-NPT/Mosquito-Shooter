@@ -1,6 +1,7 @@
 JSONObject bomb_spritedata;
 PImage bomb_spritesheet;
 ArrayList<PImage> bomb_animation;
+ArrayList<Bomb> bombs;
 
 public class Bomb {
   float x, y;
@@ -27,5 +28,13 @@ public class Bomb {
     index += 0.5;
   }
  
+   void destroy() {
+      for (int i = 0; i < bombs.size(); i++) {
+        if (bombs.get(i) == this)
+          //mosquitos.get(i).y = 1000;
+          bombs.remove(i);
+      }
+    }
+  
   
 }

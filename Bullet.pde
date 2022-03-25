@@ -1,3 +1,5 @@
+ArrayList<Bullet> bullets;
+
 public class Bullet {
   
   float x, y;
@@ -45,7 +47,8 @@ public class Bullet {
   void destroy() {
     for (int i = 0; i < bullets.size(); i++) {
       if (bullets.get(i) == this)
-        bullets.get(i).y = -100;
+        //bullets.get(i).y = -100;
+        bullets.remove(i);
     }
   }
   

@@ -1,9 +1,7 @@
 String screen;
 PImage title_bg;
 PImage sky;
-ArrayList<Mosquito> mosquitos;
-ArrayList<Bomb> bombs;
-ArrayList<Bullet> bullets;
+
 int num_mosquito;
 int max_mosquito = 30;
 int score;
@@ -13,6 +11,8 @@ int maxTime;
 Timer timer;
 int max_round = 15;
 int num_round = max_round;
+
+boolean spawn;
 
 void setup() {
   frameRate(60);
@@ -57,6 +57,8 @@ void setup() {
   mosquitos = new ArrayList<Mosquito>();
   bombs = new ArrayList<Bomb>();
   bullets = new ArrayList<Bullet>();
+  
+  spawn = true;
   //reset();
 }
 
@@ -70,6 +72,12 @@ void draw() {
     menu();
     break;
   case "level1":
+    if(spawn) {
+      for(int i=0; i<max_mosquito; i++){
+        mosquitos.add(new Mosquito(round(random(20, 748)), round(random(-400, 0)), random(0.5, 1), mosquito_animation));
+      }
+    }
+    spawn = false;
     level();
     break;
   case "end":

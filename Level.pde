@@ -1,3 +1,4 @@
+
 // set location of player
 int playerX = 384; 
 int playerY = 477;
@@ -7,6 +8,11 @@ float y1;
 
 void level() {
   background(sky);
+  
+  if(mosquitos.size() == 0){
+    writeFile = true;
+    end();
+  }
   
   textAlign(CENTER);
   fill(0, 10);
@@ -46,32 +52,38 @@ void level() {
   text("Bullet left : " + num_round, 180, 30);
   
   //show mosquito
-  for(Mosquito mosquito: mosquitos){
-    mosquito.show();
-    mosquito.fly();
+  for(int i=0; i< mosquitos.size(); i++){
+    mosquitos.get(i).show();
+    mosquitos.get(i).fly();
   }
   
   //show bullet
-  for(Bullet bullet: bullets){
-    bullet.show();
-    bullet.fire();
+  for(int i=0; i< bullets.size(); i++){
+    bullets.get(i).show();
+    bullets.get(i).fire();
     
     //check bullet collision
-    if(bullet.checkCollision()){
-      bullet.destroy();
+    if(bullets.get(i).checkCollision()){
+      bullets.get(i).destroy();
     }
+    
+    //destroy bullet out of screen
+    else if(bullets.get(i).x >= 768 || bullets.get(i).x <= 0 || bullets.get(i).y >= 512 || bullets.get(i).y <= 0){
+      bullets.get(i).destroy();
+    }
+    
   }
-  
-  //spawn mosquitos
-  if(mosquitos.size() <= max_mosquito){
-    mosquitos.add(new Mosquito(round(random(20, 748)), round(random(-400, 0)), random(0.5, 1), mosquito_animation));
-  }
+
   
   //show bombs
-  for(Bomb bomb: bombs){
-    bomb.show();
-    if(bomb.index < 20) bomb.animate();
+  for(int i=0; i< bombs.size(); i++){
+    bombs.get(i).show();
+    if(bombs.get(i).index < 20) bombs.get(i).animate();
+    else bombs.get(i).destroy();
   }
+  
+  //show mosquito number
+  text(mosquitos.size(), width-100, 50);
   
 }
 
