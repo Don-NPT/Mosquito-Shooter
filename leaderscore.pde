@@ -8,9 +8,12 @@ String namescore;
 PrintWriter output;
 int count=0;
 int temp = 0;
+
+
 ArrayList<TEXTBOX> textboxes = new ArrayList<TEXTBOX>();
 boolean send = false;
 String msg = "";
+
 
 void leaderscore() {
   size(768,512);
@@ -18,6 +21,7 @@ void leaderscore() {
   //background(title_bg);
   
   //while lopp for read txt and save txt
+
   while(temp == 0){
   namescore = textboxes.get(0).Text+score+" ";
   String[] lines = loadStrings("score.txt");
@@ -33,6 +37,7 @@ void leaderscore() {
   
   drawleaderscore();
   temp = 1;
+
 }
 
 
