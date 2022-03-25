@@ -1,6 +1,6 @@
 public class TEXTBOX {
    public int X = 0, Y = 0, H = 35, W = 200;
-   public int TEXTSIZE = 64;
+   public int TEXTSIZE = 24;
    
    // COLORS
    public color Background = color(140, 140, 140);
