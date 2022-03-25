@@ -36,7 +36,7 @@ void leaderscore() {
 }
 
 
-void drawe(){
+void drawleaderscore(){
  fill(255);
  textSize(32);
  textAlign(CENTER);
