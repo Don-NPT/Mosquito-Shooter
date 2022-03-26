@@ -6,18 +6,31 @@ int playerY = 477;
 float x1;
 float y1;
 
+int waveremaining = 4;
+int wave = 1;
+
 void level() {
   background(sky);
   
+  //enemy = 0, waveremaining more than 0 spawn it!!!
+  if(mosquitos.size() == 0 && waveremaining > 0 ){
+    for(int i=0; i<max_mosquito; i++){
+        mosquitos.add(new Mosquito(round(random(20, 748)), round(random(-400, 0)), random(0.5, 1), mosquito_animation));
+      }
+    waveremaining-=1;
+    wave +=1;
+  }
+  
   //enemy = 0, end game
-  if(mosquitos.size() == 0){
+  if(mosquitos.size() == 0 && waveremaining == 0){
     end();
   }
   
+  //show current wave
   textAlign(CENTER);
   fill(0, 10);
   textSize(60);
-  text("This is level 1" ,width/2, height/2);
+  text("Wave : "+wave ,width/2, height/2);
   
   //draw wall
   rectMode(CENTER);
@@ -96,6 +109,8 @@ void level() {
   //show mosquitos number
   text("Mosquito remaining: "+mosquitos.size(), width-250, 30);
   
+  //Show wave remaining
+  text("Wave remaining: "+waveremaining, width-250, 60);
 }
 
 //end screen
