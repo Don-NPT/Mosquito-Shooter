@@ -100,7 +100,7 @@ void level() {
   //show score
   textAlign(LEFT);
   textSize(24);
-  text("Score: " + score, 20, 30);
+  text("Kill : " + score, 20, 30);
   
   //Show Ammo
   textAlign(LEFT);
