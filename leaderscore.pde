@@ -6,7 +6,6 @@ int index = 0;
 String input;
 String namescore;
 PrintWriter output;
-int count=0;
 int temp = 0;
 
 
@@ -41,8 +40,6 @@ void leaderscore() {
     entireplay = entireplay+namescore;
     word = split(entireplay, '&');
     save = split(entireplay, '@');
-    count++;
-    print(count+"leaderscore ");
     saveStrings("score.txt",save);
     break;
   }
@@ -55,9 +52,9 @@ void leaderscore() {
 
 void drawleaderscore(){
  fill(200);
- textSize(24);
+ textSize(12);
  textAlign(CENTER);
- textLeading(40);
+ textLeading(20);
  for(int i=0; i< word.length; i++){
    text(word[i],width/2,200+(i*60));
  
@@ -77,8 +74,8 @@ boolean checkfile(){
 //layout input name
 void InitLayout() {
    TEXTBOX receiver = new TEXTBOX();
-   receiver.W = 300;
-   receiver.H = 35;
+   receiver.W = 100;
+   receiver.H = 20;
    receiver.X = (width - receiver.W) / 2;
    receiver.Y = 50;
    textboxes.add(receiver);
