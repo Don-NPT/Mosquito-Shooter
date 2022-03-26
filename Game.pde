@@ -1,3 +1,4 @@
+import processing.sound.*;
 String screen;
 PImage title_bg;
 PImage sky;
@@ -10,6 +11,10 @@ int timeLeft;
 int maxTime;
 Timer timer;
 
+SoundFile s_fire;
+SoundFile s_menu;
+SoundFile s_level;
+SoundFile s_end;
 
 boolean spawn;
 
@@ -69,8 +74,10 @@ void draw() {
   //set initial score
     score = 0;
     menu();
+    musicSystem();
     break;
   case "level1":
+    musicSystem();
     if(spawn) {
       for(int i=0; i<max_mosquito; i++){
         mosquitos.add(new Mosquito(round(random(20, 748)), round(random(-400, 0)), random(0.5, 1), mosquito_animation));
@@ -80,6 +87,7 @@ void draw() {
     level();
     break;
   case "end":
+    musicSystem();
     leaderscore();
     break;
   }
@@ -131,6 +139,38 @@ void reset(){
   maxTime = 5;
   timeLeft = maxTime;
 
+}
+
+void loadsound(){
+    s_fire = new SoundFile(this, "Sound/GunFire.wav");
+    s_menu = new SoundFile(this, "Sound/AirRaidSirens.wav");
+    s_level = new SoundFile(this, "Sound/Assault.wav");
+    s_end = new SoundFile(this, "Sound/end.wav");
+}
+
+void musicSystem() {
+  if (!s_menu.isPlaying() && screen == "menu") {
+    stopMusics(screen);
+    s_menu.play();
+  }
+  if (!s_level.isPlaying() && screen == "level1") {
+    stopMusics(screen);
+    s_level.play();
+  }
+  if (!s_end.isPlaying() && screen == "end") {
+    stopMusics(screen);
+    s_end.play();
+  }
+  
+}
+
+void stopMusics(String screen) {
+  if (s_menu.isPlaying() && screen != "menu")
+    s_menu.stop();
+  if (s_level.isPlaying() && screen != "level1")
+    s_level.stop();
+    if (s_end.isPlaying() && screen != "end")
+    s_end.stop();
 }
 
 //void mouseClicked() {
