@@ -114,6 +114,11 @@ void mousePressed() {
         s_reload.play();
           break;
       }
+      case "end":
+      if(btn_again.mouseInside){
+        screen = "menu";
+        
+      } 
   }
    
 }
