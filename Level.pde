@@ -7,18 +7,58 @@ float x1;
 float y1;
 
 int waveremaining = 4;
-int wave = 1;
+int wave = 0;
+int nextwave = 1;
+int spawntime = 200;
 
 void level() {
   background(sky);
   
   //enemy = 0, waveremaining more than 0 spawn it!!!
   if(mosquitos.size() == 0 && waveremaining > 0 ){
-    for(int i=0; i<max_mosquito; i++){
-        mosquitos.add(new Mosquito(round(random(20, 748)), round(random(-400, 0)), random(0.5, 1), mosquito_animation));
+    if(spawntime <= 0){
+      //spawn mosquito // later wave, more difficulty
+      switch(nextwave){
+        case 1:
+          for(int i=0; i<max_mosquito; i++){
+            mosquitos.add(new Mosquito(round(random(20, 748)), round(random(-400, 0)), random(0.5, 1), mosquito_animation));
+          }
+          break;
+        case 2:
+          for(int i=0; i<max_mosquito; i++){
+            mosquitos.add(new Mosquito(round(random(20, 748)), round(random(-400, 0)), random(0.7, 1.1), mosquito_animation));
+          }
+          break;
+        case 3:
+          for(int i=0; i<max_mosquito+5; i++){
+            mosquitos.add(new Mosquito(round(random(20, 748)), round(random(-400, 0)), random(0.8, 1.3), mosquito_animation));
+          }
+          break;
+        case 4:
+          for(int i=0; i<max_mosquito+10; i++){
+            mosquitos.add(new Mosquito(round(random(20, 748)), round(random(-400, 0)), random(1, 1.3), mosquito_animation));
+          }
+          break;
       }
-    waveremaining-=1;
-    wave +=1;
+      waveremaining-=1;
+      wave +=1;
+      nextwave +=1;
+      spawntime = 200;
+    }
+    
+    //show next wave
+    textAlign(CENTER);
+    fill(0, 50);
+    textSize(60);
+    text("Wave : "+ nextwave ,width/2, height/2);
+    
+    spawntime--;
+  }else{
+    //show current wave
+    textAlign(CENTER);
+    fill(0, 10);
+    textSize(60);
+    text("Wave : "+wave ,width/2, height/2);
   }
   
   //enemy = 0, end game
@@ -26,11 +66,7 @@ void level() {
     end();
   }
   
-  //show current wave
-  textAlign(CENTER);
-  fill(0, 10);
-  textSize(60);
-  text("Wave : "+wave ,width/2, height/2);
+
   
   //draw wall
   rectMode(CENTER);
@@ -103,9 +139,9 @@ void level() {
   textSize(24);
   text("Kill : " + score, 20, 30);
   
-  //Show Ammo
-  textAlign(LEFT);
-  text("Bullet left : " + num_round, 180, 30);
+  ////Show Ammo
+  //textAlign(LEFT);
+  //text("Bullet left : " + num_round, 180, 30);
   
   //draw ammo indicator
   for(int i=0; i<num_round; i++){
@@ -116,7 +152,7 @@ void level() {
   text("Mosquito remaining: "+mosquitos.size(), width-250, 30);
   
   //Show wave remaining
-  text("Wave remaining: "+waveremaining, width-250, 60);
+  text("Wave remaining: "+waveremaining, width-500, 30);
 }
 
 //end screen

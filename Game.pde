@@ -19,8 +19,6 @@ SoundFile s_menu;
 SoundFile s_level;
 SoundFile s_end;
 
-boolean spawn;
-
 void setup() {
   frameRate(60);
   size(768,512);
@@ -67,7 +65,6 @@ void setup() {
   bombs = new ArrayList<Bomb>();
   bullets = new ArrayList<Bullet>();
   
-  spawn = true;
   //reset();
 }
 
@@ -83,12 +80,6 @@ void draw() {
     break;
   case "level1":
     musicSystem();
-    if(spawn) {
-      for(int i=0; i<max_mosquito; i++){
-        mosquitos.add(new Mosquito(round(random(20, 748)), round(random(-400, 0)), random(0.5, 1), mosquito_animation));
-      }
-    }
-    spawn = false;
     level();
     break;
   case "end":
