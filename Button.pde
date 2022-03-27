@@ -6,22 +6,12 @@ public class Button {
   
   PImage buttonImg, buttonPressedImg;
 
-
-  //_________________________________________________ constructor
-
   Button (float posX, float posY, float rectWidth, float rectHeight, String t) {
     x = posX;
     y = posY;
     w = round(rectWidth);
     h = round(rectHeight);
     text = t;
-    
-    
-    
-    //buttonImg = loadImage("Images/Button.png");
-    //buttonImg.resize(wScale, hScale);
-    //buttonPressedImg = loadImage("Images/ButtonPressed.png");
-    //buttonPressedImg.resize(wScale, hScale);
   }
   
   void show(){
@@ -52,7 +42,6 @@ public class Button {
       text(text, x, y+5);
     }
 
-    
   }
   
 }
