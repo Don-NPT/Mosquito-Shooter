@@ -7,7 +7,7 @@ String input;
 String namescore;
 PrintWriter output;
 int temp = 0;
-
+Button btn_restart;
 
 ArrayList<TEXTBOX> textboxes = new ArrayList<TEXTBOX>();
 boolean send = false;
@@ -46,6 +46,9 @@ void leaderscore() {
   
   drawleaderscore();
   temp = 1;
+  
+  btn_restart = new Button(width/2, height-60, 150, 60, "Restart");
+  btn_restart.show();
 
 }
 
