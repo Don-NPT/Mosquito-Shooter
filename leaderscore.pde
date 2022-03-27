@@ -13,6 +13,7 @@ ArrayList<TEXTBOX> textboxes = new ArrayList<TEXTBOX>();
 boolean send = false;
 String msg = "";
 
+Button btn_again;
 
 void leaderscore() {
   size(768,512);
@@ -45,6 +46,8 @@ void leaderscore() {
   }
   
   drawleaderscore();
+  btn_again = new Button(width/2, height/2+80, 150, 60, "Play again");
+  btn_again.show();
   temp = 1;
 
 }
