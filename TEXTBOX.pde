@@ -1,3 +1,4 @@
+//Sone edit from : https://github.com/mitkonikov/Processing/tree/master/Text_Box_Tutorial
 public class TEXTBOX {
    public int X = 0, Y = 0, H = 35, W = 200;
    public int TEXTSIZE = 64;
