@@ -27,6 +27,8 @@ void setup() {
   
   sky = loadImage("images/sky.jpg");
   
+  loadsound();
+  
   //get animation from mosquito spreadsheet
   mosquito_animation = new ArrayList<PImage>();
   mosquito_spritedata = loadJSONObject("images/mosquito.json");
