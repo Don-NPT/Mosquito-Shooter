@@ -136,6 +136,12 @@ void reset(){
   countDownTimer = new Timer(1000);
   maxTime = 5;
   timeLeft = maxTime;
+  
+  //reset wave
+   waveremaining = 4;
+   wave = 0; 
+   nextwave = 1;
+   spawntime = 200;
 
 }
 
