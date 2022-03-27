@@ -53,6 +53,7 @@ void level() {
   fill(0);
   noStroke();
   ellipse(playerX, playerY, 20, 20);
+ 
   
   //show mosquito
   for(int i=0; i< mosquitos.size(); i++){
@@ -105,6 +106,11 @@ void level() {
   //Show Ammo
   textAlign(LEFT);
   text("Bullet left : " + num_round, 180, 30);
+  
+  //draw ammo indicator
+  for(int i=0; i<num_round; i++){
+    rect(500+i*15, 477, 10, 30 );
+  }
   
   //show mosquitos number
   text("Mosquito remaining: "+mosquitos.size(), width-250, 30);

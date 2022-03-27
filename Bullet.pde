@@ -36,6 +36,7 @@ public class Bullet {
     for(Mosquito mosquito: mosquitos){
       if(x >= mosquito.x-25 && x <= mosquito.x+25 && y >= mosquito.y-25 && y <= mosquito.y+25) {
         bombs.add(new Bomb(mosquito.x, mosquito.y, bomb_animation));
+        s_explosion.play();
         mosquito.destroy();
         score ++;
         return true;

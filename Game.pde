@@ -12,6 +12,9 @@ int maxTime;
 Timer timer;
 
 SoundFile s_fire;
+SoundFile s_fire2;
+SoundFile s_reload;
+SoundFile s_explosion;
 SoundFile s_menu;
 SoundFile s_level;
 SoundFile s_end;
@@ -111,11 +114,13 @@ void mousePressed() {
       //check aim in 180 degree
       if(reload == false){
         if(y1 <= playerY){
+          s_fire2.play();
           bullets.add(new Bullet(x1, y1));
           num_round--;
           break;
         }
       }else{
+        s_reload.play();
           break;
       }
   }
@@ -145,6 +150,9 @@ void reset(){
 
 void loadsound(){
     s_fire = new SoundFile(this, "Sound/GunFire.wav");
+    s_fire2 = new SoundFile(this, "Sound/gunfire2.mp3");
+    s_reload = new SoundFile(this, "Sound/reload.wav");
+    s_explosion = new SoundFile(this, "Sound/explosion.wav");
     s_menu = new SoundFile(this, "Sound/AirRaidSirens.wav");
     s_level = new SoundFile(this, "Sound/Assault.wav");
     s_end = new SoundFile(this, "Sound/end.wav");
