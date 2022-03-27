@@ -15,11 +15,11 @@ String msg = "";
 
 Button btn_again;
 
+
 void leaderscore() {
   size(768,512);
   background(230,230,255);
   //background(title_bg);
-  
   
   fill(0);
   rect(width/2, height/2, 500, 500);
@@ -101,7 +101,6 @@ void keyPressed() {
    for (TEXTBOX t : textboxes) {
       if (t.KEYPRESSED(key, keyCode)) {
          send = true;
-         msg = "Message is: " + textboxes.get(0).Text;
       }
    }
 }
