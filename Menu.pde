@@ -17,9 +17,10 @@ void menu() {
   //fill(150);
   //rect(width/2, height/2+100, 150, 70);
   btn_play = new Button(width/2, height/2+80, 150, 60, "Play");
+  //draw box for input name
   drawTEXTBOX();
   InitLayout();
-  
+  //Show button
   btn_play.show();
   
 }

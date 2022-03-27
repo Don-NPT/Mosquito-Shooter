@@ -114,12 +114,11 @@ void mousePressed() {
         s_reload.play();
           break;
       }
-    case "end":
-      //click in textbox
-      if(btn_restart.mouseInside){
-        setup();
+      case "end":
+      if(btn_again.mouseInside){
+        screen = "menu";
+        
       } 
-      break;
   }
    
 }
@@ -147,8 +146,16 @@ void reset(){
  spawntime = 200;
  
  
-  bombs = new ArrayList<Bomb>();
-  bullets = new ArrayList<Bullet>();
+  //set timer
+  countDownTimer = new Timer(1000);
+  maxTime = 5;
+  timeLeft = maxTime;
+  
+  //reset wave
+   waveremaining = 4;
+   wave = 0; 
+   nextwave = 1;
+   spawntime = 200;
 
 }
 
@@ -186,8 +193,3 @@ void stopMusics(String screen) {
     if (s_end.isPlaying() && screen != "end")
     s_end.stop();
 }
-
-//void mouseClicked() {
-//  bullets = new ArrayList<Bullet>();
-//  bullets.add(new Bullet(x1, y1));
-//}
