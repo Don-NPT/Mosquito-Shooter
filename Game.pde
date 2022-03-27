@@ -184,8 +184,3 @@ void stopMusics(String screen) {
     if (s_end.isPlaying() && screen != "end")
     s_end.stop();
 }
-
-//void mouseClicked() {
-//  bullets = new ArrayList<Bullet>();
-//  bullets.add(new Bullet(x1, y1));
-//}
