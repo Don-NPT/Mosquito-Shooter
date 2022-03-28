@@ -158,10 +158,6 @@ void level() {
   textSize(24);
   text("Kill : " + score, 20, 30);
   
-  ////Show Ammo
-  //textAlign(LEFT);
-  //text("Bullet left : " + num_round, 180, 30);
-  
   //draw ammo indicator
   for(int i=0; i<num_round; i++){
     rect(500+i*15, 477, 10, 30 );

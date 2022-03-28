@@ -36,7 +36,7 @@ void leaderscore() {
   }
   
   drawleaderscore();
-  btn_again = new Button(width/2, height/2+80, 150, 60, "Play again");
+  btn_again = new Button(width/2, height-50, 150, 60, "Play again");
   btn_again.show();
   temp = 1;
 
@@ -46,17 +46,19 @@ void leaderscore() {
 void drawleaderscore(){
  fill(200);
  textSize(14);
- textAlign(CENTER);
+ textAlign(LEFT);
  textLeading(20);
  
- column=1;
+ column=0;
  row=1;
  for(int i=0; i< word.length; i++){
-   if(i==10){
+
+   if(i%8==0 && i!=0){
      column++;
      row=1;
    }
-   text(word[i],column*200,200+(row*30));
+      if(column > 2) break;
+   text(word[i],column*200+120,150+(row*30));
    row++;
  }
  
