@@ -30,6 +30,9 @@ void setup() {
   title_bg = loadImage("images/title_bg.jpg");
   screen = "menu";
   
+  //setup textbox for entering user's name
+  textbox = new TEXTBOX(width/2, height-30, 250, 35);
+  
   sky = loadImage("images/sky.jpg");
   sky2 = loadImage("images/sky2.jpg");
   sky3 = loadImage("images/sky3.jpg");
@@ -99,9 +102,9 @@ void mousePressed() {
   switch(screen) {
     case "menu":
     //click in textbox
-    for (TEXTBOX t : textboxes) {
-        t.PRESSED(mouseX, mouseY);
-     }
+
+    textbox.PRESSED(mouseX, mouseY);
+     
      
       if(btn_play.mouseInside){
         s_click.play();
@@ -124,6 +127,7 @@ void mousePressed() {
       case "end":
       if(btn_again.mouseInside){
         s_click.play();
+        reset();
         screen = "menu";
         
       } 
@@ -137,6 +141,9 @@ void reset(){
   
   //set loop save score
   temp = 0;
+  
+  //setup textbox for entering user's name
+  textbox = new TEXTBOX(width/2, height-30, 250, 35);
   
   //spawn mosquito
   num_mosquito = 15;

@@ -1,16 +1,6 @@
-//Sone edit from : https://github.com/mitkonikov/Processing/tree/master/Text_Box_Tutorial
 public class TEXTBOX {
-   public int X = 0, Y = 0, H = 35, W = 200;
-   public int TEXTSIZE = 64;
-   
-   // COLORS
-   public color Background = color(140, 140, 140);
-   public color Foreground = color(0, 0, 0);
-   public color BackgroundSelected = color(160, 160, 160);
-   public color Border = color(30, 30, 30);
-   
-   public boolean BorderEnable = false;
-   public int BorderWeight = 1;
+   public int X, Y, H, W;
+   public int TEXTSIZE = 24;
    
    public String Text = "";
    public int TextLength = 0;
@@ -28,24 +18,20 @@ public class TEXTBOX {
    void DRAW() {
       // DRAWING THE BACKGROUND
       if (selected) {
-         fill(BackgroundSelected);
+        stroke(255,0,0);
+         fill(255);
       } else {
-         fill(Background);
+        stroke(0);
+         fill(255);
       }
-      
-      if (BorderEnable) {
-         strokeWeight(BorderWeight);
-         stroke(Border);
-      } else {
-         noStroke();
-      }
-      
+
       rect(X, Y, W, H);
       
       // DRAWING THE TEXT ITSELF
-      fill(255);
+      fill(0);
       textSize(TEXTSIZE);
-      text(Text, X + (textWidth("a") / 2), Y + TEXTSIZE);
+      textAlign(LEFT);
+      text(Text, X - W/2 + 5, Y + TEXTSIZE/2 - 5);
    }
    
    // IF THE KEYCODE IS ENTER RETURN 1
@@ -92,8 +78,8 @@ public class TEXTBOX {
    // FUNCTION FOR TESTING IS THE POINT
    // OVER THE TEXTBOX
    private boolean overBox(int x, int y) {
-      if (x >= X && x <= X + W) {
-         if (y >= Y && y <= Y + H) {
+      if (x <= X + W/2 && x >= X - W/2) {
+         if (y <= Y + H/2 && y >= Y - H/2) {
             return true;
          }
       }

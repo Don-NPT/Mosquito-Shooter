@@ -176,7 +176,6 @@ void level() {
 
 //end screen
 void end(){
-   reset();
    screen = "end";
    draw();
  }
