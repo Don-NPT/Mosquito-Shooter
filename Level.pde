@@ -11,8 +11,24 @@ int wave = 0;
 int nextwave = 1;
 int spawntime = 200;
 
+int background =1;
+
 void level() {
-  background(sky);
+  
+  switch(background){
+    case 1:
+    background(sky);
+      break;
+    case 2:
+    background(sky2);
+      break;
+    case 3:
+    background(sky3);
+      break;
+    case 4:
+    background(sky4);
+      break;
+  }
   
   //enemy = 0, waveremaining more than 0 spawn it!!!
   if(mosquitos.size() == 0 && waveremaining > 0 ){
@@ -20,22 +36,26 @@ void level() {
       //spawn mosquito // later wave, more difficulty
       switch(nextwave){
         case 1:
+          background = 1;
           for(int i=0; i<max_mosquito; i++){
             mosquitos.add(new Mosquito(round(random(20, 748)), round(random(-400, 0)), random(0.5, 1), mosquito_animation));
           }
           break;
         case 2:
+          background = 2;
           for(int i=0; i<max_mosquito; i++){
             mosquitos.add(new Mosquito(round(random(20, 748)), round(random(-400, 0)), random(0.7, 1.1), mosquito_animation));
           }
           break;
         case 3:
+          background = 3;
           for(int i=0; i<max_mosquito+5; i++){
             mosquitos.add(new Mosquito(round(random(20, 748)), round(random(-400, 0)), random(0.8, 1.3), mosquito_animation));
           }
           break;
         case 4:
-          for(int i=0; i<max_mosquito+10; i++){
+          background = 4;
+          for(int i=0; i<max_mosquito+7; i++){
             mosquitos.add(new Mosquito(round(random(20, 748)), round(random(-400, 0)), random(1, 1.3), mosquito_animation));
           }
           break;

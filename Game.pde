@@ -2,8 +2,11 @@ import processing.sound.*;
 String screen;
 PImage title_bg;
 PImage sky;
+PImage sky2;
+PImage sky3;
+PImage sky4;
 
-int num_mosquito;
+int num_mosquito = 15;
 int max_mosquito = 15;
 int score;
 Timer countDownTimer;
@@ -18,6 +21,7 @@ SoundFile s_explosion;
 SoundFile s_menu;
 SoundFile s_level;
 SoundFile s_end;
+SoundFile s_click;
 
 void setup() {
   frameRate(60);
@@ -27,6 +31,9 @@ void setup() {
   screen = "menu";
   
   sky = loadImage("images/sky.jpg");
+  sky2 = loadImage("images/sky2.jpg");
+  sky3 = loadImage("images/sky3.jpg");
+  sky4 = loadImage("images/sky4.jpg");
   
   loadsound();
   
@@ -97,6 +104,7 @@ void mousePressed() {
      }
      
       if(btn_play.mouseInside){
+        s_click.play();
         screen = "level1";
       } 
       break;
@@ -115,6 +123,7 @@ void mousePressed() {
       }
       case "end":
       if(btn_again.mouseInside){
+        s_click.play();
         screen = "menu";
         
       } 
@@ -123,6 +132,9 @@ void mousePressed() {
 }
 
 void reset(){
+  //set initial background
+  background = 1;
+  
   //set loop save score
   temp = 0;
   
@@ -158,6 +170,7 @@ void loadsound(){
     s_menu = new SoundFile(this, "Sound/AirRaidSirens.wav");
     s_level = new SoundFile(this, "Sound/Assault.wav");
     s_end = new SoundFile(this, "Sound/end.wav");
+    s_click = new SoundFile(this, "Sound/click.wav");
 }
 
 void musicSystem() {
