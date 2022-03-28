@@ -6,7 +6,7 @@ int playerY = 477;
 float x1;
 float y1;
 
-int waveremaining = 1;
+int waveremaining = 4;
 int wave = 0;
 int nextwave = 1;
 int spawntime = 200;
@@ -31,12 +31,12 @@ void level() {
           break;
         case 3:
           for(int i=0; i<max_mosquito+5; i++){
-            mosquitos.add(new Mosquito(round(random(20, 748)), round(random(-500, 0)), random(0.8, 1.3), mosquito_animation));
+            mosquitos.add(new Mosquito(round(random(20, 748)), round(random(-400, 0)), random(0.8, 1.3), mosquito_animation));
           }
           break;
         case 4:
           for(int i=0; i<max_mosquito+10; i++){
-            mosquitos.add(new Mosquito(round(random(20, 748)), round(random(-600, 0)), random(1, 1.5), mosquito_animation));
+            mosquitos.add(new Mosquito(round(random(20, 748)), round(random(-400, 0)), random(1, 1.3), mosquito_animation));
           }
           break;
       }
@@ -65,8 +65,7 @@ void level() {
   if(mosquitos.size() == 0 && waveremaining == 0){
     end();
   }
-  
-
+ 
   
   //draw wall
   rectMode(CENTER);
@@ -157,6 +156,8 @@ void level() {
 
 //end screen
 void end(){
+   reset();
    screen = "end";
+   draw();
  }
  

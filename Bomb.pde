@@ -21,7 +21,6 @@ public class Bomb {
     int index_ = floor(index) % len;
     imageMode(CENTER);
     image(animation.get(index_),x,y, 150,150);
-    //rect(x, y, 30, 30);
   }
   
   void animate(){
@@ -31,10 +30,8 @@ public class Bomb {
    void destroy() {
       for (int i = 0; i < bombs.size(); i++) {
         if (bombs.get(i) == this)
-          //mosquitos.get(i).y = 1000;
           bombs.remove(i);
       }
     }
-  
   
 }

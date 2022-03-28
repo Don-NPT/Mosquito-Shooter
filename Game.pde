@@ -4,7 +4,7 @@ PImage title_bg;
 PImage sky;
 
 int num_mosquito;
-int max_mosquito = 1;
+int max_mosquito = 15;
 int score;
 Timer countDownTimer;
 int timeLeft;
@@ -65,7 +65,6 @@ void setup() {
   bombs = new ArrayList<Bomb>();
   bullets = new ArrayList<Bullet>();
   
-  //reset();
 }
 
 void draw() {
@@ -102,7 +101,7 @@ void mousePressed() {
       } 
       break;
     case "level1":
-      //check aim in 180 degree and if not reload
+      //check aim in 180 degree
       if(reload == false){
         if(y1 <= playerY){
           s_fire2.play();
@@ -124,27 +123,19 @@ void mousePressed() {
 }
 
 void reset(){
-  screen = "level1";
   //set loop save score
   temp = 0;
   
   //spawn mosquito
-  num_mosquito = 1;
-  max_mosquito = 1;
+  num_mosquito = 15;
   mosquitos = new ArrayList<Mosquito>();
-  
+ 
  //setup bullets
  num_round = 15;
  bullets = new ArrayList<Bullet>();
- bullet_timer = 70;
- reload = false;
  
- //setup level
- waveremaining = 1;
- wave = 0;
- nextwave = 1;
- spawntime = 200;
- 
+ //setup bomb animation
+ bombs = new ArrayList<Bomb>();
  
   //set timer
   countDownTimer = new Timer(1000);

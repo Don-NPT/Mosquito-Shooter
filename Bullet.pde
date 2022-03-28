@@ -45,8 +45,6 @@ public class Bullet {
     return false;
   }
   
-
-  
   void destroy() {
     for (int i = 0; i < bullets.size(); i++) {
       if (bullets.get(i) == this)
@@ -56,13 +54,3 @@ public class Bullet {
   }
   
 }
-
-//boolean checkReload() {
-
-//  if(bullet_timer <= 0){
-//    num_round = max_round;
-//    bullet_timer = 500;
-//    return true;
-//  }
-//  return false;
-//}
