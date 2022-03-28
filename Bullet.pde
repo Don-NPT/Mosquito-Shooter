@@ -56,13 +56,3 @@ public class Bullet {
   }
   
 }
-
-//boolean checkReload() {
-
-//  if(bullet_timer <= 0){
-//    num_round = max_round;
-//    bullet_timer = 500;
-//    return true;
-//  }
-//  return false;
-//}

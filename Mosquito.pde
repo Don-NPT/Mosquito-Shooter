@@ -23,7 +23,6 @@ public class Mosquito {
     int index_ = floor(index) % len;
     imageMode(CENTER);
     image(animation.get(index_),x,y);
-    //rect(x, y, 30, 30);
   }
   
   void fly() {
@@ -42,7 +41,6 @@ public class Mosquito {
   void destroy() {
     for (int i = 0; i < mosquitos.size(); i++) {
       if (mosquitos.get(i) == this)
-        //mosquitos.get(i).y = 1000;
         mosquitos.remove(i);
     }
   }
