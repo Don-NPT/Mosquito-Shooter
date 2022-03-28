@@ -19,6 +19,7 @@ Button btn_again;
 void leaderscore() {
   size(768,512);
   background(230,230,255);
+  //background(title_bg);
   
   fill(0);
   rect(width/2, height/2, 500, 500);

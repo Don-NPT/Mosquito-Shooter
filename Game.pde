@@ -65,6 +65,7 @@ void setup() {
   bombs = new ArrayList<Bomb>();
   bullets = new ArrayList<Bullet>();
   
+  //reset();
 }
 
 void draw() {
