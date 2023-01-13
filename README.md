@@ -22,6 +22,9 @@ Result scene, this scene show player name and score also show the previous playe
 
 -----------------------------------------------------------------------------------------------------------------------------
 Develop by
+
 Chayaphol Tangnititham
+
 Napat Sutthiwong
+
 Natthachaimongkol Chayopathum
