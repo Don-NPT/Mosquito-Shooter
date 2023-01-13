@@ -5,6 +5,8 @@ Game Mosquito Shooter Devleop on Processing IDE
 The main idea is Simulator the situation that player controlling a connon for protect the kingdom from mutated mosquitoes.
 
 Scene
+
+
 ![image](https://user-images.githubusercontent.com/51602389/212270250-bdb93887-f968-44ae-957d-68c6bcdbd6df.png)
 
 The first main scene show the title, play button and input player name box.
